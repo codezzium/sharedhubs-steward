@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtualenv (host'ta /opt/steward/.venv olarak yaşar)
+.venv/
+venv/

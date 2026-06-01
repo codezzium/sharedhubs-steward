@@ -1,0 +1,16 @@
+[Unit]
+Description=SharedHub Steward (host agent)
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/steward
+Environment=STEWARD_CONFIG=/etc/steward/config.yml
+ExecStart=/opt/steward/.venv/bin/python -m steward.main
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
