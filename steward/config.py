@@ -12,7 +12,6 @@ DEFAULT_CONFIG_PATH = Path('/etc/steward/config.yml')
 class AgentConfig:
     bind_host: str
     bind_port: int
-    ingress_subdomain: str
     panel_url: str
     pve_storage: str
     template_vmid: int
@@ -27,7 +26,6 @@ class AgentConfig:
         return cls(
             bind_host=data['bind_host'],
             bind_port=int(data.get('bind_port', 9090)),
-            ingress_subdomain=data['ingress_subdomain'],
             panel_url=data['panel_url'].rstrip('/'),
             pve_storage=data.get('pve_storage', 'local-lvm'),
             template_vmid=int(data.get('template_vmid', 9000)),
